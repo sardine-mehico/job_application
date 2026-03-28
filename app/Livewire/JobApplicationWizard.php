@@ -96,7 +96,7 @@ class JobApplicationWizard extends Component
     {
         $this->validate($this->rules());
 
-        JobApplication::create([
+        $application = JobApplication::create([
             'job_title' => '',
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
@@ -120,6 +120,7 @@ class JobApplicationWizard extends Component
             'references' => $this->sanitizeRepeater($this->references),
         ]);
 
+        $this->dispatch('application-submitted', application_id: $application->id, step_count: count($this->steps));
         $this->resetForm();
         $this->showThankYouModal = true;
     }

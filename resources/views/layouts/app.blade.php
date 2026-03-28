@@ -6,6 +6,12 @@
         <title>{{ $title ?? config('app.name') }}</title>
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700|outfit:500,600,700" rel="stylesheet" />
+        <script>
+            window.posthogConfig = {
+                key: @js(env('VITE_POSTHOG_KEY')),
+                host: @js(env('VITE_POSTHOG_HOST', 'https://us.i.posthog.com')),
+            };
+        </script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
