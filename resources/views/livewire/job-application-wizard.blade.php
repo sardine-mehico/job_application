@@ -1,6 +1,8 @@
 @php
     $inputClasses = 'mt-2 w-full rounded-[0.475rem] border border-stone-300 bg-white px-5 py-4 text-base text-stone-900 outline-none transition focus:border-amber-500 focus:ring-4 focus:ring-amber-100';
     $labelClasses = 'text-sm font-semibold text-stone-700';
+    $stepCount = count($steps);
+    $progressPercentage = (int) round(($step / $stepCount) * 100);
 @endphp
 
 <div class="min-h-screen bg-[linear-gradient(180deg,_#292524_0%,_#292524_24rem,_#f5f5f4_24rem,_#f5f5f4_100%)]">
@@ -8,7 +10,18 @@
         <section class="rounded-[0.475rem] bg-white p-6 shadow-xl sm:p-8">
             <div class="mb-6">
                 <h1 class="font-outfit text-3xl font-semibold text-stone-900 sm:text-4xl">Employment Application</h1>
-                <p class="mt-3 text-sm font-semibold uppercase tracking-[0.25em] text-amber-600">Step {{ $step }} of {{ count($steps) }}</p>
+                <div class="mt-3 rounded-[0.475rem] border border-amber-200 bg-amber-50 p-3 sm:p-3.5">
+                    <div class="flex items-center justify-between gap-4">
+                        <p class="text-sm font-black uppercase tracking-[0.2em] text-amber-700 sm:text-base">Step {{ $step }} of {{ $stepCount }}</p>
+                        <span class="shrink-0 text-xs font-semibold text-amber-700 sm:text-sm">{{ $progressPercentage }}%</span>
+                    </div>
+                    <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-amber-100">
+                        <div
+                            class="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-600 transition-all duration-300"
+                            style="width: {{ $progressPercentage }}%;"
+                        ></div>
+                    </div>
+                </div>
             </div>
 
             <form wire:submit="{{ $step === count($steps) ? 'submit' : 'nextStep' }}" class="space-y-8">
@@ -103,7 +116,7 @@
                                 @error('criminal_history') <p class="mt-2 text-sm text-red-600">{{ $message }}</p> @enderror
                             </div>
                             <div>
-                                <label class="{{ $labelClasses }}">Do you have a current police clearance (less than 12 months old)? or are you willing to apply for one?</label>
+                                <label class="{{ $labelClasses }}">Do you have a current police clearance? or are you willing to apply for one?</label>
                                 <select wire:model="police_clearance" class="{{ $inputClasses }}">
                                     <option value=""></option>
                                     <option>Yes</option>

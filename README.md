@@ -9,7 +9,7 @@ The Compose stack reads variables from `.env`, so you can change ports, app URL,
 By default the stack pulls the published image from GitHub Container Registry:
 
 ```env
-APP_IMAGE=ghcr.io/sardine-mehico/job_application:1.0
+APP_IMAGE=ghcr.io/sardine-mehico/job_application:1.1
 ```
 
 Recommended `.env` values for hosting:
@@ -20,7 +20,7 @@ APP_ENV=production
 APP_DEBUG=false
 APP_URL=https://your-domain.example
 
-APP_IMAGE=ghcr.io/sardine-mehico/job_application:1.0
+APP_IMAGE=ghcr.io/sardine-mehico/job_application:1.1
 APP_PORT=8088
 APP_CONTAINER_NAME=cleaning-company-app
 

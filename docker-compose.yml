@@ -1,6 +1,6 @@
 services:
   app:
-    image: ${APP_IMAGE:-ghcr.io/sardine-mehico/job_application:1.0}
+    image: ${APP_IMAGE:-ghcr.io/sardine-mehico/job_application:1.1}
     container_name: ${APP_CONTAINER_NAME:-cleaning-company-app}
     env_file:
       - .env

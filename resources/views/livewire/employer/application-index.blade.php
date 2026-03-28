@@ -10,11 +10,9 @@
 
 <div class="min-h-screen bg-stone-100">
     <header class="bg-stone-900 text-white">
-        <div class="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-8 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8">
+        <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
             <div>
-                <p class="font-outfit text-sm uppercase tracking-[0.35em] text-amber-300">Employer Dashboard</p>
-                <h1 class="mt-3 text-4xl font-semibold">Job applications</h1>
-                <p class="mt-3 max-w-2xl text-stone-300">Sort by date, name, or suburb. Filter applications by suburb and date range, then click a row to open the full application.</p>
+                <h1 class="text-[1.1rem] font-semibold">Job applications</h1>
             </div>
 
             <form method="POST" action="{{ route('logout') }}">
